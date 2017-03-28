@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+me
+
+{% block content %}
+<section class="section-1">
+            <div class="mainphoto"></div>
+            <div class="image-cover">
+                <div class="logo"> <img src="{% static 'images/logo.png' %}" alt="logo">
+                    <h1>photography</h1>
+                    <div class="nav-bar">
+                        <ul>
+                            <li>home</li>
+                            <li>portfolio</li>
+                            <li>testimonalia</li>
+                            <li>about</li>
+                            <li>contact</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="social-logos">
+                    <a href="{% url 'blog:login' %}"><i class="fa fa-user fa-2x" aria-hidden="true">  Log-In/Sign-Up</i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-2">
+            <h1>PortFolio</h1>
+
+            <div class="image-containor">
+                <ul>
+		{% for post in post_list %}
+                    <a href="{% url 'blog:post_detail' post.id %}">
+                    <li>
+                        <img src="{{ MEDIA_URL }}{{post.image.name}}">
+                        <div class="text-box">{{post.title}}</div>
+                    </li>
+                    </a>
+		{% endfor %}
+                </ul>
+            </div>
+            <div class="about">
+                about
+            </div>
+        </section>
+
+        <section class="section-3">
+            <div class="section-3-containor">
+                <div class="text-about">
+                    <h1>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </h1>
+                </div>
+                <div class="image-about">
+                    <img src="{% static 'images/shambhu.jpg' %}" alt="shambhu">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-4">
+            <h1>contact</h1>
+            <div class="forum-map-container">
+                <div class="forum">
+                    <div class="forum-style">
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div class="forum-style">
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="forum-label">
+                        <label for="Message">Message</label>
+                    </div>
+                    <div class="forum-style">
+                        <textarea name="Send Message" rows="7" cols="80"></textarea>
+                    </div>
+                    <div class="button-style">
+                        <button type="button" name="button">Send</button>
+                    </div>
+                </div>
+
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.473609592366!2d77.08627305017993!3d28.495395196940347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19386394df05%3A0x2f2805b9b4942a41!2sDLF+CyberHub!5e0!3m2!1sen!2sin!4v1487071794826" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+{% endblock %}

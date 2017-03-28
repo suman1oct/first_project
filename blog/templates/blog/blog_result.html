@@ -1,0 +1,11 @@
+{% load staticfiles %}
+{% load static %}
+{{ form.media }}
+
+
+{{user.post_set.all}}
+
+{% for choice in post_detail %}
+	{{choice.text}}
+{% endfor %}
+ 

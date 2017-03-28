@@ -1,0 +1,32 @@
+{% load staticfiles %}
+{% load static %}
+{{ form.media }}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css'%}"/>
+</head>
+<body>
+
+
+<div id=a>
+    <h2><CENTER>Django Blog</h2></CENTER>
+</div>
+
+{% for post in post_list %}
+    <div>
+        <p>PUBLISHED:{{ post.published_date }}</p>
+        <h3>TITLE : {{ post.title }}</h3>
+	<h3>author : {{ post.author }}</h3>
+        <h4>TEXT :{{ post.text}}</h4>
+        <img src="{{ media }}{{ post.image }}" ></img>
+        
+        
+		  
+
+    </div>
+{% endfor %}
+</body>
+</html>

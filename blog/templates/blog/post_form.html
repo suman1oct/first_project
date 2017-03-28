@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+{% load static %}
+{{ form.media }}
+
+<html>
+   <body>
+
+
+      
+      <form name = "form" action = "" method = "POST" enctype="multipart/form-data">{% csrf_token %}
+         
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table><br>
+    <input type="submit" value="Submit" style=margin=800px>
+    
+</form>
+
+      
+   </body>
+</html>
+
+
+

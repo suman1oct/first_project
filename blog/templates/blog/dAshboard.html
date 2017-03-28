@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+{% load static %}
+{{ form.media }}
+
+
+<div><center><h2>DASHBOARD</h2></center></div>
+{% for post in post_list %}
+
+	<img src="{{MEDIA_URL}}{{post.image}}">
+	<h3><a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a><br><input type="submit" value='Edit' ></h3>
+
+	
+{% endfor %}
+
+ 

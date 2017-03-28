@@ -1,0 +1,23 @@
+/******************************
+ * ALL FONT FACES
+******************************/
+
+@font-face {
+    font-family: playball;
+    src: url('../fonts/playball/playball.ttf');
+}
+
+@font-face {
+    font-family: arista;
+    src: url('../fonts/arista/arista.ttf');
+}
+
+@font-face {
+    font-family: playball;
+    src: url('../fonts/playball/playball.ttf');
+}
+
+@font-face {
+    font-family: nexa;
+    src: url('../fonts/nexa/Nexa-Light.otf');
+}

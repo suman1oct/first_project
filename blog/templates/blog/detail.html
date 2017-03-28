@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+        <section class="header-containor">
+            <div class="containor-1">
+                <div class="img"><img src="{% static 'images/logo.png' %}" alt="logo"></div>
+                <div class="heading"><h1>photography</h1></div>
+            </div>
+        </section>
+
+        <section>
+
+            <div class="containor">
+                <div class="content-containor">
+                    <h1>{{ post.title }}</h1>
+                    <div class="detail"><p>Author: {{ post.author }}</p> <p>Date: {{ post.published_date }}</p></div>
+                    <div class="content">
+                        <img src="{{ media }}{{ post.image }}" alt="photo">
+                        <p>{{ post.text}}</p>
+                        <cite></cite>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <aside>
+                        <h4>Archives</h4>
+                        <div class="archives">
+			{% for post in post_list %}
+                11{{post.pk}} 22
+                            <a href="{% url 'blog:post_detail' post.pk %}">
+                                <div class="box">
+                                    <img src="{{ media }}{{ post.image }}" alt="photo">
+                                    <div class="archive-content">
+                                        <h5>{{ post.title }}</h5>
+                                        <div><p>Author: {{ post.author }}</p> <p>Date: {{ post.published_date }} </p></div>
+                                    </div>
+                                </div>
+                            </a>
+			{% endfor %}
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+{% endblock %}

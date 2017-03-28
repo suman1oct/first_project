@@ -1,0 +1,114 @@
+.body{
+    margin: 0px;
+}
+
+.header-containor{
+    height:130px;
+    background-color: #A9B5AA;
+}
+
+.containor-1{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.img {
+    width:25%;
+    float: left;
+    padding-top: 12px;
+}
+
+.heading {
+    width:75%;
+    float: left;
+    font-family: playball;
+    font-size: 40px;
+}
+
+.heading h1 {
+    margin: 0px;
+    padding-top: 20px;
+}
+
+.containor {
+    width:90%;
+    margin: 0 auto;
+    height: 545px;
+}
+
+.content-containor {
+    width: 70%;
+    float: left;
+}
+
+.detail{
+    width: 100%;
+    background-color: rgba(211,211,211,0.3);
+    height:20px;
+}
+
+.detail p {
+    width: 50%;
+    margin: 0px;
+    float: left;
+}
+
+.content{
+    margin-top: 20px;
+}
+
+.content img{
+    float: left;
+    height: 280px;
+    width: 360px;
+    margin-right: 5px;
+}
+
+.content p:first-of-type{
+    margin-top: 0px;
+}
+
+.sidebar{
+    width: 30%;
+    float: left;
+    text-align: center;
+    background-color: rgba(211,211,211,0.6);
+    height: 545px;
+    overflow: scroll;
+}
+
+.sidebar h4 {
+    border-bottom: solid #000000;
+    padding-bottom: 18px;
+}
+
+
+.archives{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.box {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box img{
+    width: 30%;
+}
+
+.archive-content{
+    width: 70%;
+    float: left;
+    overflow: hidden;
+}
+
+.archive-content h5 {
+    margin: 0px;
+}
+
+.archive-content p{
+    margin: 6px 0px 0px 0px;
+    font-size: 10px;
+}

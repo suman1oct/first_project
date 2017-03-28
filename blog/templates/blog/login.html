@@ -25,26 +25,26 @@
 
                     <!--Body-->
 
-                    <form name = "form" method = "POST" class="sign-up"> {% csrf_token %}
+                    <form name = "form" method = "POST" class="sign-up" action="{% url 'blog:registration' %}"> {% csrf_token %}
                       <div class="md-form mrg mrg-2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <i class="fa fa-user prefix"></i>
-                          <input type="text" id="form3" class="form-control">
+                          <input type="text" name="username" id="form3" class="form-control">
                           <label for="form3">Your name</label>
                       </div>
                       <div class="md-form mrg col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <i class="fa fa-envelope prefix"></i>
-                          <input type="text" id="form2" class="form-control">
+                          <input type="text" name="email" id="form2" class="form-control">
                           <label for="form2">Your email</label>
                       </div>
 
                       <div class="md-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <i class="fa fa-lock prefix fa-4x"></i>
-                          <input type="password" id="form4" class="form-control">
+                          <input type="password" name="password" id="form4" class="form-control">
                           <label for="form4">Your password</label>
                       </div>
 
                       <div class="text-center">
-                          <button class="btn btn-indigo">Sign up</button>
+                          <button type="submit" class="btn btn-indigo">Sign up</button>
                       </div>
                     </form>
                     <form name = "form" method = "POST" class="sign-in"> {% csrf_token %}

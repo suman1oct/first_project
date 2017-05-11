@@ -13,6 +13,7 @@ urlpatterns=[
 	#url(r'^logout/', views.logout_view, name='logout'),
 	url(r'^logout/', views.LogoutView.as_view(), name='logout'),
 	url(r'^add/', views.AddView.as_view(), name='add'),
+	url(r'^delete/(?P<pk>[0-9]+)/', views.DeleteView.as_view(), name='delete'),
 	
 	
 ]

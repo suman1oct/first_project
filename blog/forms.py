@@ -17,17 +17,19 @@ class LoginForm(forms.Form):
 		return self.cleaned_data
 
 class RegistrationForm(forms.Form):
-	username =forms.CharField(max_length=30)
-	password=forms.CharField(widget=forms.PasswordInput())
-	email=forms.CharField(widget=forms.EmailInput())
+	username =forms.CharField(max_length=30, required=True)
+	password=forms.CharField(widget=forms.PasswordInput(), required=True)
+	email=forms.CharField(widget=forms.EmailInput(), required=True)
 	
 	def clean(self):
 		username = self.cleaned_data.get('username')
 		email = self.cleaned_data.get('email')
 		password = self.cleaned_data.get('password')
-		if User.objects.filter(username=self.cleaned_data['username']).exists():
-			raise forms.ValidationError('user already exist')
-		return self.cleaned_data
+		if username:
+			if User.objects.filter(username=self.cleaned_data['username']).exists():
+				raise forms.ValidationError('user already exist')
+			return self.cleaned_data
+	
 
 class EditForm(forms.Form):
 	author=forms.CharField(max_length=30)

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Post</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<div class="image"></div>
+
+<form name = "form" action = "" method = "POST" enctype="multipart/form-data"><input type='hidden' name='csrfmiddlewaretoken' value='Kyz8dkPgwms4HOJS7W8SUPUkSYD7TvXO0ZEE88Ze6zQKrQbRZbOVbP7evVIfDDub' />
+         
+
+<form action="" method="post">
+    <input type='hidden' name='csrfmiddlewaretoken' value='Kyz8dkPgwms4HOJS7W8SUPUkSYD7TvXO0ZEE88Ze6zQKrQbRZbOVbP7evVIfDDub'/>
+    
+    <table>
+    <tr>
+    	<th><label for="id_title">Title:</label></th>
+    	<td>
+    		{{form.title}}
+    	</td>
+    </tr>
+	<tr>
+		<th><label for="id_text">Text:</label></th>
+		<td>
+			<div class="django-ckeditor-widget" data-field-id="id_text" style="display: inline-block;">
+    			<textarea cols="40" id="id_text" class="form-control" name="text" rows="10" required data-processed="0" data-config='{"skin": "moono-lisa", "filebrowserWindowHeight": 725, "width": 700, "toolbar_Full": [["Styles", "Format", "Bold", "Italic", "Underline", "Strike", "SpellChecker", "Undo", "Redo"], ["Link", "Unlink", "Anchor"], ["Image", "Flash", "Table", "HorizontalRule"], ["TextColor", "BGColor"], ["Smiley", "SpecialChar"], ["Source"]], "language": "en-us", "height": 300, "filebrowserUploadUrl": "/ckeditor/upload/", "filebrowserBrowseUrl": "/ckeditor/browse/", "filebrowserWindowWidth": 940, "toolbar_Basic": [["Source", "-", "Bold", "Italic"]], "toolbar": "Full"}' data-external-plugin-resources='[]' data-id="id_text" data-type="ckeditortype"></textarea>
+			</div>
+		</td>
+	</tr>
+<tr>
+<th>
+<label for="id_image">Image:</label>
+</th>
+<td>
+<input id="id_image" name="image" type="file" /></td></tr>
+    </table><br>
+    <input type="submit" class="" value="Submit" style=margin=800px>
+</html>

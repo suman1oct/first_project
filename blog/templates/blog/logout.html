@@ -2,8 +2,11 @@
 	<head>
 	</head>
 
+
+
 	<body>
 		<form name = "form" action = "" method = "POST" >{% csrf_token %}
 			<input type="submit" value='log out'>
+			<h1>{{messages}}</h1>
 	</body>
 </html>>

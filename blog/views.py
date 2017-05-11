@@ -14,6 +14,9 @@ from django.http import HttpResponseRedirect
 from django.views import generic
 from django.views.generic import View
 from django.http import HttpResponse
+
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 #from django.http import HttpRequest
 """def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -23,7 +26,7 @@ from django.http import HttpResponse
 
 class PostView(generic.ListView):
 	template_name='blog/homepage.html'
-	queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date').all()
+	queryset = Post.objects.all().order_by('created_date')
 
 class PostDetailView(generic.DetailView):
 	template_name = 'blog/blog_detail.html'
@@ -67,11 +70,13 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
        	# return HttpResponseRedirect('blog:login')
+       	messages.success(request, 'logout successfully')
        	return redirect('blog:login')
 
 
 class DashboardView(generic.ListView):
 	template_name='blog/dashboard.html'
+	paginate_by = 1
 
 	def get(self, *args, **kwargs):
 		if not self.request.user.is_authenticated():
@@ -79,12 +84,13 @@ class DashboardView(generic.ListView):
 		return super(DashboardView, self).get(*args, **kwargs)
 
 	def get_queryset(self):
-		return Post.objects.order_by('published_date')
+		return Post.objects.filter(author=self.request.user).order_by('-published_date')
 	#queryset=Post.objects.order_by('published_date').all()ef
 
 class RegistrationView(generic.FormView):
 	template_name='blog/registration.html'
 	form_class=RegistrationForm
+	# success_message = 'user register  successfully'
 	#success_url=reverse_lazy('blog:post')
 	def form_valid(self,form):
 		username =form.cleaned_data.get('username')
@@ -94,24 +100,44 @@ class RegistrationView(generic.FormView):
 		user=User(username=username,email=email)
 		user.set_password(password)
 		user.save()
+		messages.success(self.request, 'User Register Successfully')
 		return redirect('blog:login')
+	
 
 """def success_view(request):
 		return render(HttpResponse,"blog/success.html",{})
 """
 
-class EditView(UpdateView):
+class EditView(SuccessMessageMixin, UpdateView):
 	model=Post
-	fields=['author','title','text','created_date','published_date','image']
+	fields=['title','text','image']
 	#success_url = '/admin'
-	success_url=reverse_lazy('blog:post')
+	success_url=reverse_lazy('blog:dashboard')
+	success_message = 'Post Edited Successfully'
+
+
 	#return redirect('blog:success')
 	# def form_valid(self, form):
 		# return self.render_to_response(self.get_context_data(form=form))
 		# return form
 
-class AddView(CreateView):
+class AddView(SuccessMessageMixin,CreateView):
 	model=Post
-	fields=['author','title','text','created_date','published_date','image']
+	fields=['title','text','image']
 	#success_url='/admin'
-	success_url=reverse_lazy('blog:post')
+	success_url=reverse_lazy('blog:dashboard')
+	success_message = 'post successfully added'
+	def form_valid(self, form, *dscvdsvc, **fdsv):
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = self.request.user
+			post.save()
+		return super(AddView, self).form_valid(form, *dscvdsvc, **fdsv)
+
+
+class DeleteView(SuccessMessageMixin,DeleteView):
+    model = Post
+    template_name='blog/delete.html'
+    success_url = reverse_lazy('blog:dashboard')
+    success_message = 'post delete successfully'
+

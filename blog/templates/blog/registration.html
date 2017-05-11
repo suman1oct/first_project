@@ -1,4 +1,20 @@
-<form action="" method="post">{%csrf_token%}
-{{ form.as_p}}
-<input type='submit' value='save'/>
-</form>
+ 	
+{% load staticfiles %}
+
+{% load static %}
+{{ form.media }}
+
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<div>
+		<div style="position: absolute;"> <img class="img-responsive" src="{% static 'images/studio.jpg' %}" alt="Chania"> </div>
+		<div class="container col-lg-6 col-lg-offset-4" style="position: relative; top: 30px;">
+	
+	<form action="" method="post">{%csrf_token%}
+	{{ form.as_p}}
+	<input type='submit' value='save' class="btn btn-success"/>
+	</form>
+	</div>
+	</div>

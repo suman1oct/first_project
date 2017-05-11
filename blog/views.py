@@ -116,7 +116,10 @@ class EditView(SuccessMessageMixin, UpdateView):
 	success_message = 'Post Edited Successfully'
 
 
-	
+	#return redirect('blog:success')
+	# def form_valid(self, form):
+		# return self.render_to_response(self.get_context_data(form=form))
+		# return form
 
 class AddView(SuccessMessageMixin,CreateView):
 	model=Post
